@@ -12,6 +12,7 @@
 
 # Generated helpsearch folders
 helpsearch*/
+work/
 
 # Simulink autosave extension
 *.autosave
