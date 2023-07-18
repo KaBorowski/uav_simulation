@@ -28,9 +28,9 @@ switch (model)
         % Inertia calculated from 3D model. Parts of the model have wrong material
         % settings and the final mass is not proper. Calculater inertia values were
         % divided by model weight and multiplied by the real weight.
-        Vehicle.Airframe.inertia = diag([0.03858 0.04146 0.05935]);
+%         Vehicle.Airframe.inertia = diag([0.03858 0.04146 0.05935]);
         % Estimated as rectangle 
-        % Vehicle.Airframe.inertia = diag([0.0221866 0.0221866 0.04266]); 
+        Vehicle.Airframe.inertia = diag([0.0221866 0.0221866 0.04266]); 
 end
 
 % Distance between the middle of the airframe and the single rotor in a
@@ -110,3 +110,7 @@ Vehicle.Motor.minLimit = 30;
 Vehicle.Motor.commandToW2Gain = 2294.4;
 
 Vehicle.Motor.thrustToMotorCommand = 1/(Vehicle.Rotor.w2ToThrustGain*Vehicle.Motor.commandToW2Gain);
+
+% Extra parameters to simulate non equal motors 
+Vehicle.Motor.gain = [1 1 1 1]; % All motors are equal
+Vehicle.Motor.offset = [0 0 0 0]; % All motors are equal

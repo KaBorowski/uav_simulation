@@ -105,9 +105,11 @@ Vehicle.Rotor.w2ToThrustGain = Vehicle.Rotor.Ct*rho*Vehicle.Rotor.area*Vehicle.R
 % Motors
 Vehicle.Motor.maxLimit = 1000;
 Vehicle.Motor.minLimit = 30;
-% Calculate dependency between 
-% Vehicle.Motor.commandToW2Gain = 58; %motor command for Rolling Spider % (0-500) to motorspeed^2 - teoretycznie poprawne, poprawka na nową prędkość w (omega) plus wcześniej trzeba chyba było pomnożyć przez 10, bo PWM był w procentach a nie promilach
-% Vehicle.Motor.commandToW2Gain = 58*5.1148;
+% Calculate dependency between command and measured thrust and change
+% thrust to W2
 Vehicle.Motor.commandToW2Gain = 2294.4;
 
 Vehicle.Motor.thrustToMotorCommand = 1/(Vehicle.Rotor.w2ToThrustGain*Vehicle.Motor.commandToW2Gain);
+
+% Extra parameters to simulate non equal motors 
+Vehicle.Motor.gain = [1 1 1 1]; % All motors are 

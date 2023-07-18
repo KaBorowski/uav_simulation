@@ -29,7 +29,8 @@ Sensors.IMU.gyroGBias = [0 0 0];
 Sensors.IMU.gyroLimits = [-10 -10 -10 10 10 10];
 % Noise
 Sensors.IMU.noiseSeeds = 41*ones(6,1);
-Sensors.IMU.noiseWeights = [0.8 0.8 0.8 0.025 0.025 0.025];
+Sensors.IMU.noiseWeights = [0.8 0.8 0.8 0.025 0.025 0.025]; % Original
+% Sensors.IMU.noiseWeights = [500.0 500.0 500.0 50.0 50.0 50.0]; % Mgr UAV update
 Sensors.IMU.noisePower = Sensors.IMU.noiseWeights.*[0.0165195073635001 0.0152648883285633 0.0215786550496705 ...
     0.000652733165165932 0.000721701528439517 0.000690781425279554].^2;
 Sensors.Sonar.noisePower = 1;
